@@ -274,8 +274,3 @@ button:focus {
     font-family: var(--font-archivo);
     font-weight: 100;
 }
-@media (max-width: 767px) {
-    .slider, .slide, .slide__inner, .slide-info, .slide-info__inner, .slider--btn__prev, .slider--btn__next {
-      display: none !important;
-    }
-}  
