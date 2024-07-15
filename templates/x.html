@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <met#aeb3b8et="utf-8">
+        <title>Melika Portfolio</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        
+        <!-- Libraries Stylesheet -->
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+        
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        
+    </head>
+
+    <body>
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 sticky-lg-top vh-100">
+                    {% include 'slider.html' %}
+                </div>
+                <div class="col-lg-8">
+                    <!-- About Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">About Me</h1>
+                        <p>I hold a Bachelor's degree in Industrial Engineering from one of the top universities in Iran.  After graduation, I began my career as an Industrial Engineer at a wood factory, where I played a pivotal role as the ERP Project Manager. In this position, I successfully implemented an ERP system(Odoo), created comprehensive reports for the factory, in logistics, costs, and other fields.
+                            
+                            After a year and a half, having completed the ERP project at the wood factory, I sought to broaden my knowledge and experience by working for a leading ERP company in Iran. Over the next three years, I had the opportunity to work with over 75 different companies and organizations. I assisted them in implementing warehouse and manufacturing modules, and provided business intelligence reports to streamline their production processes.
+                            
+                            This extensive exposure to various industries and data-driven projects fueled my interest in data science. To further my expertise, I decided to pursue a Master's degree in Data Science at Ghent University. Armed with both practical experience and advanced academic knowledge, I am now eager to tackle new challenges and continue my journey in the field of data science.
+                            
+                            </p>
+                        <div class="row mb-4">
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Name:</span> Melika Abedi
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Birthday:</span> 27 October 1996
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Degree:</span> Master
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Experience:</span> 4 Years
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Phone:</span> +32 496 442 493
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Email:</span> melikaabedi681375@gmail.com
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Address:</span> 42 Maria-theresiastraat, Ghent, Belgium
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Freelance:</span> Available
+                            </div>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-4 col-lg-6 col-xl-4">
+                                <div class="d-flex bg-secondary p-4">
+                                    <div class="ps-3">
+                                        <nav class="mb-0">
+                                            <a href="#skills" class="mb-0">
+                                        <p class="mb-0"></p>
+                                        <h3 class="mb-0">Skills</h3>
+                                        </a>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-6 col-xl-4">
+                                <div class="d-flex bg-secondary p-4">
+                                    <div class="ps-3">
+                                        <nav class="mb-0">
+                                            <a href="#journy" class="mb-0">
+                                        <p class="mb-0"></p>
+                                        <h3 class="mb-0">Journy</h3>
+                                    </a>
+                                </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-6 col-xl-4">
+                                <div class="d-flex bg-secondary p-4">
+                                    <div class="ps-3">
+                                        <nav class="mb-0">
+                                            <a href="#Projects" class="mb-0">
+                                        <p class="mb-0"></p>
+                                        <h3 class="mb-0">Projects</h3>
+                                    </a>
+                                </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- About End -->
+
+
+                </div>
+            </div>
+        </div>
+
+        
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/typed/typed.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+<!-- Contact Javascript File -->
+<script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+<script src="{% static 'mail/contact.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+    </body>
+</html>
