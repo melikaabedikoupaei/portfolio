@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {box-sizing: border-box}
-body { margin:0}
+body { margin:0 }
 .mySlides {display: none}
 img {vertical-align: middle;}
 
@@ -14,6 +14,8 @@ img {vertical-align: middle;}
   max-width: 1000px;
   position: relative;
   margin: auto;
+  /* Adding a general top margin for larger screens */
+  margin-top: 20px; 
 }
 
 /* Next & previous buttons */
@@ -93,8 +95,19 @@ img {vertical-align: middle;}
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev, .next, .text {
+    font-size: 11px;
+  }
 }
+
+/* Additional styling for mobile devices */
+@media only screen and (max-width: 600px) {
+  .slideshow-container {
+    /* Adding space from the top for mobile devices */
+    margin-top: 40px; /* Adjust the value as needed */
+  }
+}
+
 </style>
 </head>
 <body>
@@ -151,4 +164,4 @@ img {vertical-align: middle;}
 </script>
 
 </body>
-</html> 
+</html>
