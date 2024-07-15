@@ -22,7 +22,7 @@ from .views import *
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",index,name="index"),
-    path("x",x,name="x"),
+    path("Data_visualization_project/", Data_visualization_project, name="Data_visualization_project"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
