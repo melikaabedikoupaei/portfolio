@@ -17,19 +17,17 @@
     padding: 0;
 }
 
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
     overflow: auto;
-
+    -webkit-overflow-scrolling: touch; /* Ensures smooth scrolling on iOS */
 }
 
 body {
-    display: grid;
-    place-items: center;
-     overflow: auto;
-
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     background: #2C3E50;
 }
 
@@ -37,74 +35,55 @@ button {
     border: none;
     background: none;
     cursor: pointer;
-    &:focus {
-        outline: none;
-        border: none;
-    }
 }
 
-/* ------------------------------------------------ */
-/* -------------------- SLIDER -------------------- */
-/* ------------------------------------------------ */
+button:focus {
+    outline: none;
+}
 
+/* Slider styles */
 .slider {
     width: calc(3 * var(--slide-width));
     height: calc(2 * var(--slide-height));
     display: flex;
     align-items: center;
-    padding-top: 20px; /* Added to create space at the top */
+    padding-top: 20px;
 }
 
 .slider--btn {
     --size: 40px;
-
     display: inline-flex;
     justify-content: center;
     align-items: center;
     opacity: 0.7;
     transition: opacity 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
     z-index: 999;
+}
 
-    & svg {
-        width: var(--size);
-        height: var(--size);
-        stroke: white;
-    }
+.slider--btn svg {
+    width: var(--size);
+    height: var(--size);
+    stroke: white;
+}
 
-    &:hover {
-        opacity: 1;
-    }
+.slider--btn:hover {
+    opacity: 1;
 }
 
 .slides__wrapper {
     width: 100%;
     height: 100%;
-
     display: grid;
     place-items: center;
-
-    & > * {
-        grid-area: 1 / -1;
-    }
 }
 
-.slides,
-.slides--infos {
+.slides, .slides--infos {
     width: 100%;
     height: 100%;
-
     pointer-events: none;
-
     display: grid;
     place-items: center;
-    & > * {
-        grid-area: 1 / -1;
-    }
 }
-
-/* ------------------------------------------------ */
-/* -------------------- SLIDE --------------------- */
-/* ------------------------------------------------ */
 
 .slide {
     --slide-tx: 0px;
@@ -118,19 +97,15 @@ button {
     user-select: none;
     perspective: 800px;
 
-    transform: perspective(1000px)
-        translate3d(var(--slide-tx), var(--slide-ty), var(--slide-tz, 0))
-        rotateY(var(--slide-rotY)) scale(var(--slide-scale));
-    transition: transform var(--slide-transition-duration)
-        var(--slide-transition-easing);
+    transform: perspective(1000px) translate3d(var(--slide-tx), var(--slide-ty), var(--slide-tz, 0)) rotateY(var(--slide-rotY)) scale(var(--slide-scale));
+    transition: transform var(--slide-transition-duration) var(--slide-transition-easing);
 }
 
 .slide[data-current] {
-    --slide-scale: 1.;
+    --slide-scale: 1;
     --slide-tz: 0px;
     --slide-tx: 0px;
     --slide-rotY: 0;
-
     pointer-events: auto;
 }
 
@@ -147,22 +122,15 @@ button {
 .slide:not([data-current]) {
     --slide-scale: 1;
     --slide-tz: 0;
-    /* --slide-tx: calc(var(--offset) * var(--slide-width) * 1.05); */
-    /* --slide-rotY: calc(var(--dir) * -45deg); */
-
     pointer-events: none;
 }
 
-.slide[data-current] {
-    & .slide--image {
-        filter: brightness(0.8);
-    }
+.slide[data-current] .slide--image {
+    filter: brightness(0.8);
 }
 
-.slide:not([data-current]) {
-    & .slide--image {
-        filter: brightness(0.5);
-    }
+.slide:not([data-current]) .slide--image {
+    filter: brightness(0.5);
 }
 
 .slide__inner {
@@ -194,55 +162,13 @@ button {
     top: 50%;
     left: 50%;
     object-fit: contain;
-    transform: translate(-50%, -50%) scale(1.25)
-        translate3d(var(--bgPosX), var(--bgPosY), 0);
-    transition: filter var(--slide-transition-duration)
-        var(--slide-transition-easing);
+    transform: translate(-50%, -50%) scale(1.25) translate3d(var(--bgPosX), var(--bgPosY), 0);
+    transition: filter var(--slide-transition-duration) var(--slide-transition-easing);
 }
-
-/* 
-.slide__bg {
-    position: fixed;
-    inset: -20%;
-    background-image: var(--bg);
-    background-size: cover;
-    background-position: center center;
-
-    z-index: -1;
-    pointer-events: none;
-
-    transition: opacity var(--slide-transition-duration) ease,
-        transform var(--slide-transition-duration) ease;
-
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-    }
-
-    &::before {
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(8px);
-    }
-
-    &:not([data-current]) {
-        opacity: 0;
-    }
-
-    &[data-previous] {
-        transform: translateX(-10%);
-    }
-
-    &[data-next] {
-        transform: translateX(10%);
-    }
-} */
-
-/* ------------ SLIDE INFO ---------------- */
 
 .slide-info {
     --padding: 0px;
-    margin-top: 20px; /* Added to create space at the top */
+    margin-top: 20px;
     position: relative;
     width: var(--slide-width);
     height: 100%;
@@ -252,20 +178,16 @@ button {
     z-index: 100;
 }
 
-.slide-info[data-current] {
-    & .slide-info--text span {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-        transition-delay: 250ms;
-    }
+.slide-info[data-current] .slide-info--text span {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition-delay: 250ms;
 }
 
-.slide-info:not([data-current]) {
-    & .slide-info--text span {
-        opacity: 0;
-        transform: translate3d(0, 100%, 0);
-        transition-delay: 0ms;
-    }
+.slide-info:not([data-current]) .slide-info--text span {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+    transition-delay: 0ms;
 }
 
 .slide-info__inner {
@@ -294,78 +216,32 @@ button {
     font-family: var(--font-clash-display);
     color: #fff;
     overflow: hidden;
-
-    & span {
-        display: block;
-        white-space: nowrap;
-        transition: var(--slide-transition-duration) var(--slide-transition-easing);
-        transition-property: opacity, transform;
-    }
-
-    &[data-title],
-    &[data-subtitle] {
-        font-size: min(2.5cqw, 1.8rem); /* Adjusted for smaller text */
-        font-weight: 800;
-        letter-spacing: 0.2cqw;
-        white-space: nowrap;
-        text-transform: uppercase;
-    }
-
-    &[data-subtitle] {
-        margin-left: 1.5cqw; /* Adjusted for smaller text */
-        font-size: min(1.8cqw, 1.5rem); /* Adjusted for smaller text */
-        font-weight: 600;
-    }
-
-    &[data-description] {
-        
-        font-size: min(1.2cqw, 0.8rem); /* Adjusted for smaller text */
-        font-family: var(--font-archivo);
-        font-weight: 100;
-    }
 }
 
-/* ------------------------------------------------ */
-/* -------------------- LOADER --------------------- */
-/* ------------------------------------------------ */
+.slide-info--text span {
+    display: block;
+    white-space: nowrap;
+    transition: var(--slide-transition-duration) var(--slide-transition-easing);
+    transition-property: opacity, transform;
+}
 
-/* .loader {
-    position: fixed;
-    inset: 0;
+.slide-info--text[data-title],
+.slide-info--text[data-subtitle] {
+    font-size: min(2.5cqw, 1.8rem);
+    font-weight: 800;
+    letter-spacing: 0.2cqw;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
 
-    display: grid;
-    place-items: center;
+.slide-info--text[data-subtitle] {
+    margin-left: 1.5cqw;
+    font-size: min(1.8cqw, 1.5rem);
+    font-weight: 600;
+}
 
-    background: #000;
-    z-index: 1000;
-
-    opacity: 1;
-    transition: opacity 0.5s ease-out;
-
-    .loader__text {
-        font-family: var(--font-clash-display);
-        font-size: clamp(2rem, 2vw, 5rem);
-        font-weight: 800;
-        color: #fff;
-    }
-} */
-
-/* ------------------------------------------- */
-/* 
-.support {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    padding: 10px;
-    display: flex;
-    a {
-        margin: 0 10px;
-        color: #fff;
-        font-size: 1.8rem;
-        backface-visibility: hidden;
-        transition: all 150ms ease;
-        &:hover {
-            transform: scale(1.1);
-        }
-    }
-} */
+.slide-info--text[data-description] {
+    font-size: min(1.2cqw, 0.8rem);
+    font-family: var(--font-archivo);
+    font-weight: 100;
+}
