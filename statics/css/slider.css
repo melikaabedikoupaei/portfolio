@@ -24,19 +24,21 @@ body {
 }
 
 body {
-    
-    overflow: auto; /* Ensure the page can scroll */
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+
+    background: #2C3E50;
 }
 
 button {
     border: none;
     background: none;
     cursor: pointer;
-}
-
-button:focus {
-    outline: none;
-    border: none;
+    &:focus {
+        outline: none;
+        border: none;
+    }
 }
 
 /* ------------------------------------------------ */
@@ -45,26 +47,21 @@ button:focus {
 
 .slider {
     width: calc(3 * var(--slide-width));
-    height: calc(2 * var(--slide-width) / var(--slide-aspect));
+    height: calc(2 * var(--slide-height));
     display: flex;
     align-items: center;
-    overflow: hidden; /* Ensure that slides are contained */
-    margin: 0 auto; /* Center the slider */
-    max-width: 100vw; /* Ensure it does not overflow horizontally */
-    min-height: 300px; /* Adjust based on your content */
+    padding-top: 20px; /* Added to create space at the top */
 }
 
 .slider--btn {
     --size: 40px;
+
     display: inline-flex;
     justify-content: center;
     align-items: center;
     opacity: 0.7;
     transition: opacity 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    z-index: 10; /* Ensure buttons are above slides */
-    padding: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
+    z-index: 999;
 
     & svg {
         width: var(--size);
@@ -77,17 +74,10 @@ button:focus {
     }
 }
 
-.slider--btn__prev {
-    left: 10px;
-}
-
-.slider--btn__next {
-    right: 10px;
-}
-
 .slides__wrapper {
     width: 100%;
     height: 100%;
+
     display: grid;
     place-items: center;
 
@@ -100,7 +90,9 @@ button:focus {
 .slides--infos {
     width: 100%;
     height: 100%;
+
     pointer-events: none;
+
     display: grid;
     place-items: center;
     & > * {
@@ -132,7 +124,7 @@ button:focus {
 }
 
 .slide[data-current] {
-    --slide-scale: 1.2;
+    --slide-scale: 1.;
     --slide-tz: 0px;
     --slide-tx: 0px;
     --slide-rotY: 0;
@@ -153,6 +145,8 @@ button:focus {
 .slide:not([data-current]) {
     --slide-scale: 1;
     --slide-tz: 0;
+    /* --slide-tx: calc(var(--offset) * var(--slide-width) * 1.05); */
+    /* --slide-rotY: calc(var(--dir) * -45deg); */
 
     pointer-events: none;
 }
@@ -197,32 +191,63 @@ button:focus {
     position: absolute;
     top: 50%;
     left: 50%;
-    object-fit: cover;
+    object-fit: contain;
     transform: translate(-50%, -50%) scale(1.25)
         translate3d(var(--bgPosX), var(--bgPosY), 0);
     transition: filter var(--slide-transition-duration)
         var(--slide-transition-easing);
 }
 
-/* Remove background image section */
+/* 
 .slide__bg {
-    display: none; /* Hide the background */
-}
+    position: fixed;
+    inset: -20%;
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center center;
+
+    z-index: -1;
+    pointer-events: none;
+
+    transition: opacity var(--slide-transition-duration) ease,
+        transform var(--slide-transition-duration) ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+
+    &::before {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+    }
+
+    &:not([data-current]) {
+        opacity: 0;
+    }
+
+    &[data-previous] {
+        transform: translateX(-10%);
+    }
+
+    &[data-next] {
+        transform: translateX(10%);
+    }
+} */
 
 /* ------------ SLIDE INFO ---------------- */
 
 .slide-info {
     --padding: 0px;
-    position: absolute;
+    margin-top: 20px; /* Added to create space at the top */
+    position: relative;
     width: var(--slide-width);
     height: 100%;
     aspect-ratio: var(--slide-aspect);
+    user-select: none;
+    perspective: 800px;
     z-index: 100;
-    padding: 1rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 }
 
 .slide-info[data-current] {
@@ -275,24 +300,24 @@ button:focus {
         transition-property: opacity, transform;
     }
 
-    & [data-title],
-    & [data-subtitle] {
-        font-size: min(3cqw, 2.4rem);
+    &[data-title],
+    &[data-subtitle] {
+        font-size: min(2.5cqw, 1.8rem); /* Adjusted for smaller text */
         font-weight: 800;
         letter-spacing: 0.2cqw;
         white-space: nowrap;
         text-transform: uppercase;
     }
 
-    & [data-subtitle] {
-        margin-left: 2cqw;
-        font-size: min(2.2cqw, 1.8rem);
+    &[data-subtitle] {
+        margin-left: 1.5cqw; /* Adjusted for smaller text */
+        font-size: min(1.8cqw, 1.5rem); /* Adjusted for smaller text */
         font-weight: 600;
     }
 
-    & [data-description] {
-        margin-left: 1cqw;
-        font-size: min(1.5cqw, 0.95rem);
+    &[data-description] {
+        margin-left: 0.5cqw; /* Adjusted for smaller text */
+        font-size: min(1.2cqw, 0.8rem); /* Adjusted for smaller text */
         font-family: var(--font-archivo);
         font-weight: 300;
     }
@@ -302,13 +327,16 @@ button:focus {
 /* -------------------- LOADER --------------------- */
 /* ------------------------------------------------ */
 
-.loader {
+/* .loader {
     position: fixed;
     inset: 0;
+
     display: grid;
     place-items: center;
-    background: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+
+    background: #000;
     z-index: 1000;
+
     opacity: 1;
     transition: opacity 0.5s ease-out;
 
@@ -318,49 +346,24 @@ button:focus {
         font-weight: 800;
         color: #fff;
     }
-}
+} */
 
 /* ------------------------------------------- */
-
+/* 
 .support {
-    position: fixed; /* Fixed positioning to ensure it stays in place */
+    position: absolute;
     right: 10px;
     bottom: 10px;
     padding: 10px;
     display: flex;
-    gap: 10px; /* Add spacing between icons */
-    z-index: 1001; /* Ensure it stays above all other elements */
     a {
+        margin: 0 10px;
         color: #fff;
         font-size: 1.8rem;
+        backface-visibility: hidden;
         transition: all 150ms ease;
         &:hover {
             transform: scale(1.1);
         }
     }
-}
-
-/* Responsive adjustments */
-
-@media (max-width: 768px) {
-    .slider {
-        height: 50vh; /* Adjust height for smaller screens */
-        width: calc(3 * 80vw); /* Adjust width for smaller screens */
-    }
-
-    .slider--btn {
-        --size: 30px;
-    }
-
-    .slide-info {
-        font-size: clamp(0.8rem, 2vw, 1.2rem); /* Adjust font size for smaller screens */
-    }
-
-    .loader__text {
-        font-size: clamp(1rem, 2vw, 3rem); /* Adjust loader text size */
-    }
-
-    .support {
-        font-size: 1.5rem;
-    }
-}
+} */
