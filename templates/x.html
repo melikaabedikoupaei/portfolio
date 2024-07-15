@@ -43,10 +43,12 @@
 
         <div class="container">
             <div class="row g-5">
+                <div class="col-lg-4 sticky-lg-top vh-100">
+                    {% include 'slider.html' %}
+                </div>
                 <div class="col-lg-8">
                     <!-- About Start -->
                     <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        {% include 'slider.html' %}
                         <h1 class="title pb-3 mb-5">About Me</h1>
                         <p>I hold a Bachelor's degree in Industrial Engineering from one of the top universities in Iran.  After graduation, I began my career as an Industrial Engineer at a wood factory, where I played a pivotal role as the ERP Project Manager. In this position, I successfully implemented an ERP system(Odoo), created comprehensive reports for the factory, in logistics, costs, and other fields.
                             
@@ -149,10 +151,6 @@
 
 <!-- Template Javascript -->
 <script src="{% static 'js/main.js' %}"></script>
-<script>
-    window.addEventListener('load', () => {
-        window.scrollTo(0, 0);
-    });
-</script>
+
     </body>
 </html>
