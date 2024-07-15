@@ -270,7 +270,12 @@ button:focus {
 }
 
 .slide-info--text[data-description] {
-    font-size: min(1.2cqw, 0.8rem); /* Adjusted for smaller text */
+    font-size: min(1.2cqw, 1.0rem); /* Adjusted for smaller text */
     font-family: var(--font-archivo);
     font-weight: 100;
 }
+@media (max-width: 767px) {
+    .slider, .slide, .slide__inner, .slide-info, .slide-info__inner, .slider--btn__prev, .slider--btn__next {
+      display: none !important;
+    }
+}  
