@@ -113,6 +113,23 @@ export function tilt(node, options) {
 		}
 	};
 
+	const onTouchMove = (event) => {
+		const { clientX, clientY } = event.touches[0];
+		const rect = trigger.getBoundingClientRect();
+		const offsetX = clientX - rect.left;
+		const offsetY = clientY - rect.top;
+
+		lerpAmount = 0.1;
+
+		for (const el of target) {
+			const ox = (offsetX - el.clientWidth * 0.5) / (Math.PI * 3);
+			const oy = -(offsetY - el.clientHeight * 0.5) / (Math.PI * 4);
+
+			rotDeg.target.set(ox, oy);
+			bgPos.target.set(-ox * 0.3, oy * 0.3);
+		}
+	};
+
 	const onMouseLeave = () => {
 		lerpAmount = 0.06;
 
@@ -123,11 +140,15 @@ export function tilt(node, options) {
 	const addListeners = () => {
 		trigger.addEventListener("mousemove", onMouseMove);
 		trigger.addEventListener("mouseleave", onMouseLeave);
+		trigger.addEventListener("touchmove", onTouchMove);
+		trigger.addEventListener("touchend", onMouseLeave);
 	};
 
 	const removeListeners = () => {
 		trigger.removeEventListener("mousemove", onMouseMove);
 		trigger.removeEventListener("mouseleave", onMouseLeave);
+		trigger.removeEventListener("touchmove", onTouchMove);
+		trigger.removeEventListener("touchend", onMouseLeave);
 	};
 
 	const init = () => {
@@ -163,7 +184,6 @@ const raf = new Raf();
 
 function init() {
 	const loader = document.querySelector(".loader");
-
 	const slides = [...document.querySelectorAll(".slide")];
 	const slidesInfo = [...document.querySelectorAll(".slide-info")];
 
@@ -172,6 +192,7 @@ function init() {
 		next: document.querySelector(".slider--btn__next")
 	};
 
+	// Ensure the loader is hidden once images are loaded
 	loader.style.opacity = 0;
 	loader.style.pointerEvents = "none";
 
