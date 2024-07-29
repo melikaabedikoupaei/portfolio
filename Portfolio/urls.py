@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("",index,name="index"),
     path("Data_visualization_project/", Data_visualization_project, name="Data_visualization_project"),
+    path("roadmap/", roadmap, name="roadmap"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
