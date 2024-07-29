@@ -50,7 +50,7 @@
                 <div class="col-lg-4 sticky-lg-top vh-100">
                     <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
                         <img class="w-100 img-fluid mb-4" src="{% static 'img/result.png' %}" alt="Image">
-                        <h1 class="text-primary mt-2">Melika Abedi1</h1>
+                        <h1 class="text-primary mt-2">Melika Abedi</h1>
                         <div class="mb-4" style="height: 22px;">
                             <h4 class="typed-text-output d-inline-block text-light"></h4>
                             <div class="typed-text d-none">AI Engineer, Data Scientist, ML Engineer </div>
@@ -317,9 +317,12 @@
                     <!-- Projects End -->
 
                     <!-- roadmap Start -->
-                     
+                    <div id="audio-trigger">
+                    <!-- Add audio element -->
+                    <audio id="roadmap-audio" src="{% static 'audio/WHAT_I_KNOW.mp3' %}" autoplay loop></audio>
                     <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s" id="Projects">
                         <h1 class="title pb-3 mb-5">road map</h1>
+                        <p>WHAT DO I KNOW?</p>
                             <div class="row g-4">
                                 <div class="col-md-6">
                                                 <div class="card" style="background-color: #2c3e50 ; border: none">
@@ -360,6 +363,7 @@
                                                 </div>
                                             </div>
                                         </section>
+                                    </div>
                                         
                                         <!-- roadmap End -->
                 </div>
@@ -388,6 +392,32 @@
 
 <!-- Template Javascript -->
 <script src="{% static 'js/main.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const audioElement = document.getElementById('roadmap-audio');
+      const triggerElement = document.getElementById('audio-trigger');
+      
+      function checkScroll() {
+        const triggerPosition = triggerElement.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+  
+        if (triggerPosition < windowHeight) {
+          if (audioElement.paused) {
+            audioElement.play();
+          }
+        } else {
+          if (!audioElement.paused) {
+            audioElement.pause();
+          }
+        }
+      }
+  
+      window.addEventListener('scroll', checkScroll);
+      // Initial check in case the element is already in view
+      checkScroll();
+    });
+  </script>
+  
 
     </body>
 </html>
