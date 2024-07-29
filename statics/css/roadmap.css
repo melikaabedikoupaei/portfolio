@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   display: flex;
   margin: 0;
@@ -10,27 +11,31 @@ body {
 }
 
 .container {
-  width: 1000px;
+  width: 100%;
+  max-width: 1200px; /* Limits container width on larger screens */
   position: relative;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 20px; /* Adds some padding to the container */
+  box-sizing: border-box;
 }
 
+/* Card Styles */
 .container .card {
   position: relative;
   margin: 10px;
-  flex: 0 1 calc(33.333% - 20px);
+  flex: 1 1 calc(33.333% - 20px); /* Default: 3 cards per row with spacing */
 }
 
+/* Card Faces */
 .container .card .face {
-  width: 300px;
+  width: 100%; /* Make faces full width of card */
   height: 200px;
   transition: 0.4s;
 }
 
 .container .card .face.face1 {
-  position: relative;
   background: #2c3e50;
   display: flex;
   justify-content: center;
@@ -74,7 +79,6 @@ body {
 }
 
 .container .card .face.face2 {
-  position: relative;
   background: whitesmoke;
   display: flex;
   align-items: center;
@@ -111,4 +115,36 @@ a {
   background: #2c3e50;
   color: whitesmoke;
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+  .container .card {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .container .card {
+    flex: 1 1 calc(100% - 20px); /* 1 card per row */
+  }
+}
+
+@media (max-width: 479.98px) {
+  .container .card .face {
+    height: 150px; /* Reduce height of card faces for very small screens */
+  }
+
+  .container .card .face.face1 .content i {
+    font-size: 2em; /* Adjust icon size */
+  }
+
+  .container .card .face.face1 .content h3 {
+    font-size: 0.9em; /* Adjust heading size */
+  }
+
+  .container .card .face.face2 .content p,
+  .container .card .face.face2 .content a {
+    font-size: 9pt; /* Adjust text size */
+  }
 }
