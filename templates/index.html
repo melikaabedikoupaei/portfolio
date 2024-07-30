@@ -315,7 +315,6 @@
                     </section>
                     <!-- Projects End -->
 
-
                 </div>
             </div>
         </div>
@@ -342,6 +341,32 @@
 
 <!-- Template Javascript -->
 <script src="{% static 'js/main.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const audioElement = document.getElementById('roadmap-audio');
+      const triggerElement = document.getElementById('audio-trigger');
+      
+      function checkScroll() {
+        const triggerPosition = triggerElement.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+  
+        if (triggerPosition < windowHeight) {
+          if (audioElement.paused) {
+            audioElement.play();
+          }
+        } else {
+          if (!audioElement.paused) {
+            audioElement.pause();
+          }
+        }
+      }
+  
+      window.addEventListener('scroll', checkScroll);
+      // Initial check in case the element is already in view
+      checkScroll();
+    });
+  </script>
+  
 
     </body>
 </html>
