@@ -10,6 +10,7 @@
       src="https://kit.fontawesome.com/95a02bd20d.js"
       crossorigin="anonymous"
     ></script>
+    <!---
     <style>
       /* Inline styles for simplicity; move to CSS file if preferred */
       .roadmap-container {
@@ -22,14 +23,17 @@
         cursor: pointer;
       }
     </style>
+    -->
   </head>
   <body>
+    <!---
     <div class="click-here" onclick="playMusic()">Click Here</div>
     <audio
       id="background-music"
       src="{% static 'audio/WHAT_I_KNOW.mp3' %}"
       preload="auto"
     ></audio>
+    -->
     <div class="roadmap-container">
       <!-- Your existing card content -->
       <div class="card">
@@ -114,7 +118,7 @@
         </div>
       </div>
     </div>
-
+    <!---
     <script>
       function playMusic() {
         var audio = document.getElementById("background-music");
@@ -130,5 +134,6 @@
         document.querySelector(".click-here").style.display = "none";
       }
     </script>
+    -->
   </body>
 </html>
