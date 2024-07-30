@@ -1,4 +1,3 @@
-<!-- templates/myapp/card_effect.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +10,33 @@
       src="https://kit.fontawesome.com/95a02bd20d.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      /* Inline styles for simplicity; move to CSS file if preferred */
+      .roadmap-container {
+        display: none; /* Hide the content initially */
+      }
+      .click-here {
+        text-align: center;
+        margin-top: 20%;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
+    <div class="click-here" onclick="playMusic()">Click Here</div>
+    <audio
+      id="background-music"
+      src="{% static 'audio/WHAT_I_KNOW.mp3' %}"
+      preload="auto"
+    ></audio>
     <div class="roadmap-container">
+      <!-- Your existing card content -->
       <div class="card">
         <div class="face face1">
           <div class="content">
-            <i class="fab fa-windows"></i>
-            <h3>Windows 1</h3>
+            <i class="fas fa-laptop"></i>
+            <h3>Computer Science Fundamentals</h3>
           </div>
         </div>
         <div class="face face2">
@@ -33,12 +51,13 @@
           </div>
         </div>
       </div>
-
+      <!-- Repeat for other cards -->
+      <!-- Your existing card content -->
       <div class="card">
         <div class="face face1">
           <div class="content">
-            <i class="fab fa-android"></i>
-            <h3>Android</h3>
+            <i class="fab fa-python"></i>
+            <h3>Python</h3>
           </div>
         </div>
         <div class="face face2">
@@ -53,12 +72,33 @@
           </div>
         </div>
       </div>
-
+      <!-- Repeat for other cards -->
+      <!-- Your existing card content -->
       <div class="card">
         <div class="face face1">
           <div class="content">
-            <i class="fab fa-apple"></i>
-            <h3>Apple</h3>
+            <i class="fab fa-github-square"></i>
+            <h3>Git,Github</h3>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab
+              repudiandae, explicabo voluptate et hic cum ratione a. Officia
+              delectus illum perferendis maiores quia molestias vitae fugiat
+              aspernatur alias corporis?
+            </p>
+            <a href="#" type="button">Read More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for other cards --><!-- Your existing card content -->
+      <div class="card">
+        <div class="face face1">
+          <div class="content">
+            <i class="fas fa-database"></i>
+            <h3>SQL,NOSQL</h3>
           </div>
         </div>
         <div class="face face2">
@@ -74,5 +114,21 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function playMusic() {
+        var audio = document.getElementById("background-music");
+        var container = document.querySelector(".roadmap-container");
+
+        // Play the audio
+        audio.play();
+
+        // Show the content
+        container.style.display = "block";
+
+        // Hide the Click Here text
+        document.querySelector(".click-here").style.display = "none";
+      }
+    </script>
   </body>
 </html>
