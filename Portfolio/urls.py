@@ -24,6 +24,7 @@ urlpatterns = [
     path("",index,name="index"),
     path("Data_visualization_project/", Data_visualization_project, name="Data_visualization_project"),
     path("roadmap/", roadmap, name="roadmap"),
+    path('proxy-audio/', proxy_audio, name='proxy_audio'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
