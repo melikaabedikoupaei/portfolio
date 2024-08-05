@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Melika Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        
+        <!-- Libraries Stylesheet -->
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+        
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        
+    </head>
+
+    <body>
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 sticky-lg-top vh-100">
+                    <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
+                        <img class="w-100 img-fluid mb-4 mt-2 mt-sm-3 mt-md-4 mt-lg-5" src="{% static 'img/3rd.png' %}" alt="Image">
+                        <div class="mb-4" style="height: 22px;">
+                            <h4 class="typed-text-output d-inline-block text-light"></h4>
+                            <div class="typed-text d-none"> Proud to be <strong>3rd</strong> in the Kaggle competition! , see more in GitHub  </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-auto mb-3">
+                            <a class="btn btn-secondary btn-square mx-1" href="https://github.com/melikaabedikoupaei/ML_return_rate_prediction"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="https://www.linkedin.com/in/melika-abedikoupaei/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between border-top">
+                            <a href="{% url 'index' %}" class="btn w-50 border-end">Home Page</a>
+                            <a href="" class="btn w-50 btn-scroll">Next Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <!-- About Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Predicting Product Return Rates</h1>
+                        <p>
+                            <h5 style="color: #00B87B">1. Situation</h5>
+                            <p class="star-description">
+                                Managing product returns is a critical challenge for retailers. The true cost of returns includes not just restocking but also potential depreciation and lost sales opportunities. Accurate cost calculation and predictive analysis can help mitigate these issues.
+                            </p>
+                            <p class="star-example">
+                                In this Kaggle competition, the challenge was to predict the return rate of products after a year of sales based on the first four weeks of sales data. The aim was to identify products with problematic return behavior to minimize economic and environmental impacts.
+                            </p>
+
+                            <h5 style="color: #00B87B">2. Task</h5>
+                            <p class="star-description">
+                                The goal was to build a model to predict the final return rate of products based on early sales data.
+                                I was tasked with predicting the final return rate for products based on the data from the first four weeks of sales, using one year of historical data for model training.
+                            </p>
+
+                            <h5 style="color: #00B87B">3. Action</h5>
+                            <p class="star-description">
+                                To tackle this challenge, I utilized various machine learning models and techniques:
+                            </p>
+                            <ul class="star-actions">
+                                <li><strong>Data Preprocessing:</strong> Cleaned and prepared the dataset for modeling, handling missing values and feature scaling.</li>
+                                <li><strong>Modeling:</strong> Experimented with tree-based methods (e.g., Random Forest, XGBoost), neural networks, and SVM to identify the most effective model.</li>
+                                <li><strong>Model Evaluation:</strong> Used metrics such as Mean Absolute Error (MAE) to assess model performance and iteratively improved the models.</li>
+                                <li><strong>Programming:</strong> Implemented models in both R and Python, leveraging libraries such as scikit-learn, TensorFlow, and caret.</li>
+                            </ul>
+
+                            <h5 style="color: #00B87B">4. Result</h5>
+                            <p class="star-description">
+                                The final model achieved a significant reduction in MAE,
+                                    I successfully reduced the MAE from 1.11 to 0.084 through rigorous testing and tuning of various models, demonstrating a significant improvement in prediction accuracy.
+                                providing accurate predictions for return rates and helping identify products with high return risks.
+                            </p>
+                        </p>
+                    </section>
+                    <!-- About End -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+        <script src="{% static 'lib/typed/typed.min.js' %}"></script>
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+        <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+        <script src="{% static 'mail/contact.js' %}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'js/main.js' %}"></script>
+
+    </body>
+</html>
