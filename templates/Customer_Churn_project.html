@@ -45,13 +45,13 @@
             <div class="row g-5">
                 <div class="col-lg-4 sticky-lg-top vh-100">
                     <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
-                        <img class="w-100 img-fluid mb-4 mt-2 mt-sm-3 mt-md-4 mt-lg-5" src="{% static 'img/3rd.png' %}" alt="Image">
+                        <img class="w-100 img-fluid mb-4 mt-2 mt-sm-3 mt-md-4 mt-lg-5" src="{% static 'img/churn_prediction.png' %}" alt="Image">
                         <div class="mb-4" style="height: 22px;">
                             <h4 class="typed-text-output d-inline-block text-light"></h4>
-                            <div class="typed-text d-none"> Proud to be <strong>3rd</strong> in the Kaggle competition! , see more in GitHub  </div>
+                            <div class="typed-text d-none"> Classification Problem </div>
                         </div>
                         <div class="d-flex justify-content-center mt-auto mb-3">
-                            <a class="btn btn-secondary btn-square mx-1" href="https://github.com/melikaabedikoupaei/ML_return_rate_prediction "><i class="fab fa-github"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="https://github.com/melikaabedikoupaei/churn_prediction/tree/master"><i class="fab fa-github"></i></a>
                             <a class="btn btn-secondary btn-square mx-1" href="https://www.linkedin.com/in/melika-abedikoupaei/"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                         <div class="d-flex align-items-end justify-content-between border-top">
@@ -63,38 +63,31 @@
                 <div class="col-lg-8">
                     <!-- About Start -->
                     <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Predicting Product Return Rates</h1>
+                        <h1 class="title pb-3 mb-5">Churn Prediction for Fundraising Organization</h1>
                         <p>
                             <h5 style="color: #00B87B">1. Situation</h5>
                             <p class="star-description">
-                                Managing product returns is a critical challenge for retailers. The true cost of returns includes not just restocking but also potential depreciation and lost sales opportunities. Accurate cost calculation and predictive analysis can help mitigate these issues.
-                            </p>
-                            <p class="star-example">
-                                In this Kaggle competition, the challenge was to predict the return rate of products after a year of sales based on the first four weeks of sales data. The aim was to identify products with problematic return behavior to minimize economic and environmental impacts.
+                                The organization, a fundraising entity, was concerned about donor attrition and its impact on revenue. They provided a dataset on March 2, 2020, to build a model that could predict which donors were most likely to churn by October 25, 2020. Accurate predictions would enable targeted retention efforts, helping to minimize losses and maintain donor engagement.
                             </p>
 
                             <h5 style="color: #00B87B">2. Task</h5>
                             <p class="star-description">
-                                The goal was to build a model to predict the final return rate of products based on early sales data.
-                                I was tasked with predicting the final return rate for products based on the data from the first four weeks of sales, using one year of historical data for model training.
+                                My task was to create a predictive model that could accurately identify the top 20% of donors most likely to churn. This involved developing a unified dataset (basetable) from multiple sources, selecting appropriate features, and comparing the performance of various machine learning models, including Artificial Neural Networks (ANN), Random Forest, and Logistic Regression.
                             </p>
 
                             <h5 style="color: #00B87B">3. Action</h5>
                             <p class="star-description">
-                                To tackle this challenge, I utilized various machine learning models and techniques:
+                                To achieve the objectives, I carried out the following steps:
                             </p>
                             <ul class="star-actions">
-                                <li><strong>Data Preprocessing:</strong> Cleaned and prepared the dataset for modeling, handling missing values and feature scaling.</li>
-                                <li><strong>Modeling:</strong> Experimented with tree-based methods (e.g., Random Forest, XGBoost), neural networks, and SVM to identify the most effective model.</li>
-                                <li><strong>Model Evaluation:</strong> Used metrics such as Mean Absolute Error (MAE) to assess model performance and iteratively improved the models.</li>
-                                <li><strong>Programming:</strong> Implemented models in both R and Python, leveraging libraries such as scikit-learn, TensorFlow, and caret.</li>
+                                <li><strong>Data Preparation:</strong> Merged multiple tables, engineered features (e.g., frequency, recency, monetary value), and handled missing data through imputation.</li>
+                                <li><strong>Modeling:</strong> Built and trained models using Logistic Regression, Random Forest, and ANN. Each model was evaluated based on its ability to predict donor churn, with a particular focus on the top 20% most likely to churn.</li>
+                                <li><strong>Model Evaluation:</strong> Performance metrics such as accuracy, precision, and recall were used to assess the models. The ANN model was found to be the most effective, achieving over 80% accuracy.</li>
                             </ul>
 
                             <h5 style="color: #00B87B">4. Result</h5>
                             <p class="star-description">
-                                The final model achieved a significant reduction in MAE,
-                                    I successfully reduced the MAE from 1.11 to 0.084 through rigorous testing and tuning of various models, demonstrating a significant improvement in prediction accuracy.
-                                providing accurate predictions for return rates and helping identify products with high return risks.
+                                The final ANN model identified the top 20% of donors most likely to churn with over 80% accuracy. This model led to a targeted retention campaign that resulted in a 60% retention gain among the high-risk donors, effectively reducing donor attrition and increasing the organization’s fundraising potential.
                             </p>
                         </p>
                     </section>

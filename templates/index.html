@@ -2,11 +2,22 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
         <met#aeb3b8et="utf-8">
         <title>Melika Portfolio</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
+        <style>
+            .skills-heading {
+                color: #F2F2F2; /* Normal color */
+                transition: color 0.3s; /* Smooth transition for color change */
+            }
+    
+            .skills-heading:hover {
+                color: #00B87B; /* Color when hovered */
+            }
+        </style>
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -106,7 +117,7 @@
                                         <nav class="mb-0">
                                             <a href="#skills" class="mb-0">
                                         <p class="mb-0"></p>
-                                        <h3 class="mb-0">Skills</h3>
+                                        <h3 class="mb-0 skills-heading">Skills</h3>
                                         </a>
                                         </nav>
                                     </div>
@@ -118,7 +129,7 @@
                                         <nav class="mb-0">
                                             <a href="#journey" class="mb-0">
                                         <p class="mb-0"></p>
-                                        <h3 class="mb-0">Journey</h3>
+                                        <h3 class="mb-0 skills-heading">Journey</h3>
                                     </a>
                                 </nav>
                                     </div>
@@ -130,7 +141,7 @@
                                         <nav class="mb-0">
                                             <a href="#Projects" class="mb-0">
                                         <p class="mb-0"></p>
-                                        <h3 class="mb-0">Projects</h3>
+                                        <h3 class="mb-0 skills-heading">Projects</h3>
                                     </a>
                                 </nav>
                                     </div>
@@ -295,9 +306,10 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="service-item">
-                                    <i class="fa fa-2x fa-search mx-auto mb-4"></i>
-                                    <h5 class="mb-2">Data visualization</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                                    <a href="{% url 'Customer_Churn_project' %}">
+                                    <i class="fa fa-2x fa-users mx-auto mb-4"></i></a>
+                                    <h5 class="mb-2">Customer Churn Prediction</h5>
+                                    <p class="mb-0">Implemented a binary classification model with 80% accuracy using ANN, predicting customer churn.</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -310,17 +322,17 @@
                         </div>
                     </section>
                     <!-- Projects End -->
-                    <!-- roadmap Start -->
-                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s" id="Projects">
+                    <!-- roadmap Start --> 
+                    <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s" id="Projects">
                         <h1 class="title pb-3 mb-5">roadmap</h1>
                         <p>WHAT I KNOW?</p>
                         <div class="row g-4" style="border: none;">
                             
-                                {% include 'roadmap.html' %}
+                                {% include 'roadmap.html' 
                             
                         </div>
-                    </section>
-                    <!-- roadmap End -->
+                    </section> -->
+                    <!--roadmap End -->
                 </div>
             </div>
         </div>
@@ -347,7 +359,7 @@
 
 <!-- Template Javascript -->
 <script src="{% static 'js/main.js' %}"></script>
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       const audioElement = document.getElementById('roadmap-audio');
       const triggerElement = document.getElementById('audio-trigger');
@@ -371,7 +383,7 @@
       // Initial check in case the element is already in view
       checkScroll();
     });
-  </script>
+  </script> -->
   
 
     </body>

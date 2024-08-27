@@ -7,5 +7,7 @@ def Data_visualization_project (request):
     return render (request,"Data_visualization_project.html") 
 def Machine_learning_project (request):
     return render (request,"Machine_learning_project.html") 
+def Customer_Churn_project (request):
+    return render (request,"Customer_Churn_project.html") 
 def roadmap(request):
     return render (request,"roadmap.html") 
