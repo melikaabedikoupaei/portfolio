@@ -25,6 +25,7 @@ urlpatterns = [
     path("Data_visualization_project/", Data_visualization_project, name="Data_visualization_project"),
     path("Machine_learning_project/", Machine_learning_project, name="Machine_learning_project"),
     path("Customer_Churn_project/", Customer_Churn_project, name="Customer_Churn_project"),
+    path("JobMatchAI_project/", JobMatchAI_project, name="JobMatchAI_project"),
     path("roadmap/", roadmap, name="roadmap"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -9,5 +9,9 @@ def Machine_learning_project (request):
     return render (request,"Machine_learning_project.html") 
 def Customer_Churn_project (request):
     return render (request,"Customer_Churn_project.html") 
+
+def JobMatchAI_project (request):
+    return render (request,"JobMatchAI_project.html") 
+
 def roadmap(request):
     return render (request,"roadmap.html") 
